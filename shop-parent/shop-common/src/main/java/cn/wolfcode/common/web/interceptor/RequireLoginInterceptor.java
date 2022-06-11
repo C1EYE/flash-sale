@@ -7,8 +7,8 @@ import cn.wolfcode.common.web.Result;
 import cn.wolfcode.common.web.anno.RequireLogin;
 import cn.wolfcode.redis.CommonRedisKey;
 import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 

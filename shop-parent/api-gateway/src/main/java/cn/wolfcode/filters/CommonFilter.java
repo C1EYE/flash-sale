@@ -2,7 +2,7 @@ package cn.wolfcode.filters;
 
 import cn.wolfcode.common.constants.CommonConstants;
 import cn.wolfcode.redis.CommonRedisKey;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;

@@ -7,4 +7,6 @@ import java.util.List;
 
 
 public interface ISeckillProductService {
+
+    List<SeckillProductVo> selectSeckillProduct();
 }

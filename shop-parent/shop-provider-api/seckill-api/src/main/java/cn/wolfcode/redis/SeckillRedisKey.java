@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Getter
 public enum SeckillRedisKey {
-    SECKILL_PRODUCT_LIST("seckillProductList:"),
+    SECKILL_PRODUCT_HASH("seckillProductHash:"),
     SECKILL_ORDER_HASH("seckillOrderHash:"),
     SECKILL_STOCK_COUNT_HASH("seckillStockCount:"),
     SECKILL_REAL_COUNT_HASH("seckillRealCount:");

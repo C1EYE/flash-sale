@@ -18,4 +18,9 @@ import java.util.List;
 public class SeckillProductController {
     @Autowired
     private ISeckillProductService seckillProductService;
+
+    @RequestMapping("/selectSeckillProduct")
+    public Result<List<SeckillProductVo>> selectSeckillProduct(){
+        return Result.success(seckillProductService.selectSeckillProduct());
+    }
 }

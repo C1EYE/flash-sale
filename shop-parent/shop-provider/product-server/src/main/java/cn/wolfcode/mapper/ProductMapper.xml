@@ -10,4 +10,8 @@
        </foreach>
     </where>
   </select>
+  <select id="queryProductById" resultType="cn.wolfcode.domain.Product">
+    select id,product_name,product_title,product_img,product_detail,product_price
+    from t_product where id=#{productId}
+  </select>
 </mapper>

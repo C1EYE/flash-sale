@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class Result<T> implements Serializable {
+public class Result<T> implements Serializable{
     public static final int SUCCESS_CODE = 200;//成功码.
     public static final String SUCCESS_MESSAGE = "操作成功";//成功信息.
     public static final int ERROR_CODE = 500000;//错误码.

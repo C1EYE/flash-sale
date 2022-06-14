@@ -1,7 +1,7 @@
 package cn.wolfcode.mapper;
 
 import cn.wolfcode.domain.OrderInfo;
-import org.apache.ibatis.annotations.Param;
+import org.springframework.data.repository.query.Param;
 
 /**
  * Created by wolfcode-lanxw

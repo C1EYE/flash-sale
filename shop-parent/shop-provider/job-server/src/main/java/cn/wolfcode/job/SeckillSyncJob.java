@@ -42,6 +42,7 @@ public class SeckillSyncJob implements SimpleJob {
         doWork();
     }
     private void doWork() {
+        System.out.println("商品上架");
         // 需要zookeeper
         // 1. 删除redis中秒杀商品的所有信息：商品信息和库存信息
         int[] times = {10, 12, 14};

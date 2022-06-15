@@ -1,12 +1,16 @@
 package cn.wolfcode.web.controller;
 
+import cn.wolfcode.common.exception.BusinessException;
+import cn.wolfcode.common.web.CommonCodeMsg;
 import cn.wolfcode.common.web.Result;
 import cn.wolfcode.domain.SeckillProduct;
 import cn.wolfcode.domain.SeckillProductVo;
 import cn.wolfcode.service.ISeckillProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,5 +26,21 @@ public class SeckillProductController {
     @RequestMapping("/selectSeckillProduct")
     public Result<List<SeckillProductVo>> selectSeckillProduct(){
         return Result.success(seckillProductService.selectSeckillProduct());
+    }
+
+    @RequestMapping("/queryByTime")
+    public Result<List<SeckillProductVo>> queryByTime(@RequestParam Integer time){
+        if(StringUtils.isEmpty(time)){
+            throw new BusinessException(CommonCodeMsg.PARAM_ERROR);
+        }
+        return Result.success(seckillProductService.queryByTime(time));
+    }
+
+    @RequestMapping("/find")
+    public Result<SeckillProductVo> find(@RequestParam Integer time,@RequestParam Long seckillId){
+        if(StringUtils.isEmpty(time) || StringUtils.isEmpty(seckillId)){
+            throw new BusinessException(CommonCodeMsg.PARAM_ERROR);
+        }
+        return Result.success(seckillProductService.find(time,seckillId));
     }
 }

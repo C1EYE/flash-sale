@@ -42,7 +42,7 @@ public class SeckillSyncJob implements SimpleJob {
         doWork();
     }
     private void doWork() {
-        System.out.println("商品上架");
+
         // 需要zookeeper
         // 1. 删除redis中秒杀商品的所有信息：商品信息和库存信息
         int[] times = {10, 12, 14};
@@ -61,15 +61,15 @@ public class SeckillSyncJob implements SimpleJob {
         }
         // 3. 把读取到的秒杀商品信息放入redis
         for (SeckillProductVo seckillProductVo : result.getData()) {
-            String bigSeckillProductKey = SeckillRedisKey.SECKILL_ORDER_HASH.getRealKey(String.valueOf(seckillProductVo.getTime()));
+            String bigSeckillProductKey = SeckillRedisKey.SECKILL_PRODUCT_HASH.getRealKey(String.valueOf(seckillProductVo.getTime()));
             String smallSeckillProductKey = SeckillRedisKey.SECKILL_STOCK_COUNT_HASH.getRealKey(String.valueOf(seckillProductVo.getTime()));
             // 秒杀商品信息
             redisTemplate.opsForHash().put(bigSeckillProductKey,String.valueOf(seckillProductVo.getId()), JSON.toJSONString(seckillProductVo));
             // 秒杀商品库存信息
-            redisTemplate.opsForHash().put(bigSeckillProductKey,String.valueOf(seckillProductVo.getId()),String.valueOf(seckillProductVo.getStockCount()));
-
+            redisTemplate.opsForHash().put(smallSeckillProductKey,String.valueOf(seckillProductVo.getId()),String.valueOf(seckillProductVo.getStockCount()));
 
         }
+        System.out.println("商品上架成功！");
     }
 
 
